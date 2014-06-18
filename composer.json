@@ -1,0 +1,28 @@
+{
+    "name" : "smurfy/commonbundle",
+    "description" : "A bundle that gives me a basis for all my personal projects.",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "Smurfy",
+        "email" : "me@smurfy.tk"
+    }],
+    "keywords" : [
+        "base basis bundle"
+    ],
+    "license" : [
+        "MIT"
+    ],
+    "require" : {
+    },
+    "autoload" : {
+        "psr-0" : {
+            "Smurfy\\CommonBundle" : ""
+        }
+    },
+    "target-dir" : "Smurfy/CommonBundle",
+    "extra" : {
+    "branch-alias" : {
+            "dev-master" : "2.2-dev"
+        }
+    }
+}

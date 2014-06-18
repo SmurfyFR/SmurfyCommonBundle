@@ -1,0 +1,12 @@
+parameters:
+#    smurfy_common.example.class: Smurfy\CommonBundle\Example
+
+services:
+    smurfy.maintenance:
+        class: Smurfy\CommonBundle\Listener\Maintenance
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest, priority: -20 }
+        arguments: [@service_container]
+    smurfy.logger:
+        class:        Smurfy\CommonBundle\Services\Logger
+        arguments:    [@doctrine]
