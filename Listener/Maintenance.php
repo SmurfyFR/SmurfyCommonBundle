@@ -22,11 +22,20 @@ class Maintenance
 
         $path = $this->container->getParameter('kernel.root_dir');
 
+        // Maintenance
         $debug = in_array($this->container->get('kernel')->getEnvironment(), array('test', 'dev'));
         $maintenance = file_exists($path.'/../onMaintenance');
 
         if ($maintenance && !$debug) {
             throw new ServiceUnavailableHttpException();
 		}
+
+        // Display Message
+        if(is_file($path.'/../message.txt') AND !$debug) {
+            $msg = file_get_contents($path.'/../message.txt');
+            $this->container->get('session')
+                            ->getFlashBag()
+                            ->add('Error', $msg);
+        }
 	}
 }
