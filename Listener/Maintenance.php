@@ -35,7 +35,7 @@ class Maintenance
             $msg = file_get_contents($path.'/../message.txt');
             $this->container->get('session')
                             ->getFlashBag()
-                            ->add('Error', $msg);
+                            ->add('warning', $msg);
         }
 	}
 }
